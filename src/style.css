@@ -26,3 +26,8 @@ header {
   height: 10rem;
   background-size: contain;
 }
+
+h1 {
+  text-align: center;
+  color: #4d6275;
+}

@@ -9,10 +9,12 @@ form {
     align-items: center;
     border-radius: 15px;
     border-style: dotted;
+    border-color: #4d6275;
 }
 
 input {
-    color: grey;
+    color: #4d6275;
+    font-weight: bold;
     width: 65%;
     height: 4em;
     margin: 10px
@@ -22,4 +24,6 @@ button {
     width: 25%;
     height: 4em;
     border-radius: 10px;
+    border-color: #4d6275;
+    color: #4d6275
 }
