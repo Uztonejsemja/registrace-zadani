@@ -33,14 +33,16 @@ const Registration = () => {
     setUser({ ...user, [name]: value });
   };
 
-  useEffect(() => {
+  const handleEmail = (event) => {
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value });
     if (user.email.indexOf('@') >= 0 && user.username.length === 0) {
-      setUser({
-        ...user,
-        username: user.email.split('@')[0],
-      });
-    }
-  }, [user.email]);
+        setUser({
+          ...user,
+          username: user.email.split('@')[0],
+        });
+    };
+  };
 
   const validate = (values) => {
     const errorMsgs = {};
@@ -65,7 +67,7 @@ const Registration = () => {
           placeholder="Email Address"
           name="email"
           value={user.email}
-          onChange={handleChange}
+          onChange={handleEmail}
         />
         
         <input
