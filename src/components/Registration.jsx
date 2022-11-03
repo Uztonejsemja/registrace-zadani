@@ -74,7 +74,6 @@ const Registration = () => {
           type="text"
           placeholder="User Name"
           name="username"
-          disabled
           value={user.username}
           onChange={handleChange}
         />
