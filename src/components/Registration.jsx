@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Registration.css';
 import icon from './img/icon.png';
 
@@ -28,20 +27,19 @@ const Registration = () => {
     });
   };
 
+  useEffect(() => {
+    if (user.email.indexOf('@') >= 0 && user.username.length === 0) {
+      setUser({
+        ...user,
+        username: user.email.substring(0, user.email.indexOf('@')),
+      });
+    }
+  }, [user.email]);
+
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
-  };
-
-  const handleEmail = (event) => {
-    const { name, value } = event.target;
-    setUser({ ...user, [name]: value });
-    if (user.email.indexOf('@') >= 0 && user.username.length === 0) {
-        setUser({
-          ...user,
-          username: user.email.split('@')[0],
-        });
-    };
   };
 
   const validate = (values) => {
@@ -67,7 +65,7 @@ const Registration = () => {
           placeholder="Email Address"
           name="email"
           value={user.email}
-          onChange={handleEmail}
+          onChange={handleChange}
         />
         
         <input
